@@ -13,10 +13,6 @@ on:
         required: true
         type: string
         default: ""
-    secrets:
-      # Secrets can't be retrieved from repository
-      DOCKERHUB_USERNAME:
-      DOCKERHUB_TOKEN:
 
 jobs:
   inputs:
