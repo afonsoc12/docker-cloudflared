@@ -9,8 +9,8 @@ ARG TARGETARCH
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
-    TARGET_GOOS=${TARGETOS} \
-    TARGET_GOARCH=${TARGETARCH}
+    TARGET_OS=${TARGETOS} \
+    TARGET_ARCH=${TARGETARCH}
 
 WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
@@ -18,7 +18,8 @@ WORKDIR /go/src/github.com/cloudflare/cloudflared/
 COPY . .
 
 # compile cloudflared
-RUN echo "Running on $BUILDPLATFORM, building for $TARGETPLATFORM" && make cloudflared
+RUN echo "Running on $BUILDPLATFORM, building for $TARGETPLATFORM: TARGET_GOOS=$TARGET_OS; TARGET_GOARCH=$TARGET_ARCH" && \
+    make cloudflared
 
 # use a distroless base image with glibc
 FROM gcr.io/distroless/base-debian10:nonroot
