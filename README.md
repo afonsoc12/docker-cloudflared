@@ -1,4 +1,5 @@
 # Cloudflare Argo Tunnel client
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/afonsoc12/cloudflared?logo=docker)](https://hub.docker.com/repository/docker/afonsoc12/cloudflared) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
