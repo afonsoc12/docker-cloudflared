@@ -64,8 +64,8 @@ jobs:
           tags: |
             afonsoc12/cloudflared:latest
             afonsoc12/cloudflared:${{ needs.inputs.outputs.version }}
-            ghcr.io/afonsoc12/docker-cloudflared:latest
-            ghcr.io/afonsoc12/docker-cloudflared:${{ needs.inputs.outputs.version }}
+            ghcr.io/afonsoc12/cloudflared:latest
+            ghcr.io/afonsoc12/cloudflared:${{ needs.inputs.outputs.version }}
 
       - name: Create Release
         uses: actions/create-release@v1
