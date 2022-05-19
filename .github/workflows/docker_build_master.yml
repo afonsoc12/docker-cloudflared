@@ -64,5 +64,15 @@ jobs:
           tags: |
             afonsoc12/cloudflared:latest
             afonsoc12/cloudflared:${{ needs.inputs.outputs.version }}
-            ghcr.io/afonsoc12/cloudflared:latest
-            ghcr.io/afonsoc12/cloudflared:${{ needs.inputs.outputs.version }}
+            ghcr.io/afonsoc12/docker-cloudflared:latest
+            ghcr.io/afonsoc12/docker-cloudflared:${{ needs.inputs.outputs.version }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ needs.inputs.outputs.version }}
+          release_name: Release ${{ needs.inputs.outputs.version }}
+          draft: false
+          prerelease: false
