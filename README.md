@@ -13,7 +13,7 @@ This repository automatically builds and pushes docker images for the latest rel
 
 # Instalation
 
-The image can be pulled from both [DockerHub](https://hub.docker.com/r/afonsoc12/cloudflared) and [ghcr.io](https://github.com/afonsoc12/docker-cloudflared/pkgs/container/docker-cloudflared) container registries.
+The image can be pulled from both [DockerHub](https://hub.docker.com/r/afonsoc12/cloudflared) and [ghcr.io](https://github.com/afonsoc12/docker-cloudflared/pkgs/container/cloudflared) container registries.
 
 ```shell
 # You can also specify a version as the tag, such as afonsoc12/cloudflared:2022.5.1
