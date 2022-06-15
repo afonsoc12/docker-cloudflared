@@ -59,7 +59,7 @@ jobs:
         with:
           context: ./cloudflared
           file: Dockerfile
-          platforms: linux/arm64,linux/amd64
+          platforms: linux/arm,linux/arm64,linux/amd64
           push: true
           tags: |
             afonsoc12/cloudflared:latest
