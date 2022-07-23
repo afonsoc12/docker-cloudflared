@@ -6,7 +6,7 @@ retrieve_latest_image () {
                 -H "Accept: application/json" \
                 https://hub.docker.com/v2/repositories/$image/tags | \
                     jq -r '.["results"][]["name"]' | \
-                    grep -E '^(\d+\.)?(\d+\.)?(\*|\d+)$' | \
+                    grep -P '^(\d+\.)?(\d+\.)?(\*|\d+)$' | \
                     sort -n -r | \
                     head -n1)
     echo $version
