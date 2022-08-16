@@ -1,22 +1,22 @@
 #!/bin/bash
 
-retrieve_latest_image () {
-    image=$1
+retrieve_latest_release () {
+    repo=$1
     local version=$(curl -s \
                 -H "Accept: application/json" \
-                https://hub.docker.com/v2/repositories/$image/tags | \
-                    jq -r '.["results"][]["name"]' | \
+                https://api.github.com/repos/$repo/releases | \
+                    jq -r '.[] | select(.prerelease==false and .draft==false) | .tag_name' | \
                     grep -P '^(\d+\.)?(\d+\.)?(\*|\d+)$' | \
                     sort -n -r | \
                     head -n1)
     echo $version
 }
 
-ext_tag=$(retrieve_latest_image 'cloudflare/cloudflared')
+ext_tag=$(retrieve_latest_release 'cloudflare/cloudflared')
 
 echo "**** External release is $ext_tag"
 
-last_tag=$(retrieve_latest_image 'afonsoc12/cloudflared')
+last_tag=$(retrieve_latest_release 'afonsoc12/docker-cloudflared')
 
 echo "**** Last release is $ext_tag"
 
