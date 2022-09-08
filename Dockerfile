@@ -1,7 +1,7 @@
 # From https://github.com/cloudflare/cloudflared/commits/master/Dockerfile
 # Revision d54c8cc74544927dab45823681185615b4489363
 
-FROM --platform=$BUILDPLATFORM golang:1.17 AS build-env
+FROM --platform=$BUILDPLATFORM golang:1.18 AS build-env
 ARG BUILDPLATFORM
 ARG TARGETPLATFORM
 ARG TARGETOS
@@ -18,7 +18,7 @@ WORKDIR /go/src/github.com/cloudflare/cloudflared/
 COPY . .
 
 # compile cloudflared
-RUN echo "Running on $BUILDPLATFORM, building for $TARGETPLATFORM: TARGET_GOOS=$TARGET_OS; TARGET_GOARCH=$TARGET_ARCH" && \
+RUN echo "Running on $BUILDPLATFORM, building for $TARGETPLATFORM: TARGET_OS=$TARGET_OS; TARGET_ARCH=$TARGET_ARCH" && \
     make cloudflared
 
 # use a distroless base image with glibc
