@@ -6,7 +6,7 @@ retrieve_latest_release () {
                 -H "Accept: application/json" \
                 https://api.github.com/repos/$repo/releases | \
                     jq -r '.[] | select(.prerelease==false and .draft==false) | .tag_name' | \
-                    grep -P '^(\d+\.)?(\d+\.)?(\*|\d+)$' | \
+                    grep -Po '(\d+\.)?(\d+\.)?(\*|\d+)$' | \
                     sort -n -r | \
                     head -n1)
     echo $version
