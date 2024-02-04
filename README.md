@@ -11,6 +11,8 @@
 
 This repository automatically builds and pushes docker images for the latest releases of [cloudflare/cloudflared](https://github.com/cloudflare/cloudflared) git repository, in both `linux/amd64` and `linux/arm64` architectures.
 
+> Note: Cloudflare now provides `linux/arm64` images, therefore I'm archiving this repo. Please check [cloudflare/cloudflared](https://hub.docker.com/r/cloudflare/cloudflared) for more information.
+
 # Instalation
 
 The image can be pulled from both [DockerHub](https://hub.docker.com/r/afonsoc12/cloudflared) and [ghcr.io](https://github.com/afonsoc12/docker-cloudflared/pkgs/container/cloudflared) container registries.
